@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>My todos</title>
+  </head>
+  <body>
+    <h1>Todo for</h1>
+    <div id="popup">Task already exists!</div>
+    <div id="todo">
+      <div class="input-container">
+        <ion-icon name="add-circle-outline" class="add-icon"></ion-icon>
+        <!-- prettier-ignore -->
+        <input id="add-item" type="text" name="text" placeholder="Add an item..."/>
+        <ion-icon name="search-outline" class="search-icon"></ion-icon>
+        <!-- prettier-ignore -->
+        <input id="search-item" type="text" name="search" placeholder="Search an item..."/>
+      </div>
+      <ul id="list"></ul>
+    </div>
+    <!-- prettier-ignore -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- prettier-ignore -->
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript" src="./scripts.js"></script>
+  </body>
+</html>

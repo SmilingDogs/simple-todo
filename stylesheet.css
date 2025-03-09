@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
+  background: url("./assets/todo-background2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: brown;
+}
+
+h1 {
+  text-align: right;
+  margin-right: 18%;
+  font-size: 2em;
+  font-weight: 700;
+  font-style: italic;
+}
+
+#todo {
+  margin: 5% 7% 0 40%;
+  max-width: 75%;
+  background: white;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-height: 70vh;
+  overflow-x: hidden;
+}
+
+#todo::-webkit-scrollbar {
+  width: 5px;
+}
+
+#todo::-webkit-scrollbar-thumb {
+  background-color: brown;
+  outline: 2px solid slategrey;
+}
+
+#list {
+  padding: 0px 30px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+.item:hover {
+  background: #eee;
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  color: brown;
+  gap: 12px;
+}
+
+.item-text {
+  font-weight: 200;
+  font-size: 24px;
+  flex-grow: 1;
+  border-bottom: 1px solid #666666;
+}
+
+.item-text[style*="text-decoration: line-through"] {
+  color: #bbbbbb;
+}
+
+ion-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.add-icon,
+.search-icon {
+  position: absolute;
+  z-index: 2;
+}
+
+.add-icon {
+  left: 5%;
+}
+.search-icon {
+  right: 45%;
+}
+.input-container {
+  position: relative;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+input {
+  border: none;
+  background: #f6f4f4;
+  border-bottom: 2px solid #e5e5e5;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  width: 100%;
+  font-size: 1.2em;
+  color: black;
+  padding: 20px 0px 20px 60px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+.edit-input {
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 1.2em;
+  color: black;
+}
+.edit-input:focus {
+  outline: none;
+  border: 2px solid brown;
+}
+::-webkit-input-placeholder {
+  color: #bbb;
+}
+::-moz-placeholder {
+  color: #bbb;
+}
+:-ms-input-placeholder {
+  color: #bbb;
+}
+:-moz-placeholder {
+  color: #eee;
+}
+
+input#add-item:focus {
+  border-bottom: 2px solid brown;
+  outline: none;
+}
+input#search-item:focus {
+  border-bottom: 2px solid brown;
+  outline: none;
+}
+
+#popup {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  border: 3px solid brown;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  background-color: #ffffff;
+  color: brown;
+  padding: 0 10px;
+  font-weight: normal;
+  left: 25%;
+  top: -200px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.7s;
+}
+
+#popup.active {
+  top: 30%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 100px;
+  background-color: brown;
+  color: #fff;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  z-index: 1;
+}
+
+.tooltip:last-child .tooltip-text {
+  width: 85px;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
