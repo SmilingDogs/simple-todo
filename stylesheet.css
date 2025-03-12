@@ -79,24 +79,26 @@ ion-icon {
   cursor: pointer;
 }
 
+.add-container,
+.search-container {
+  position: relative;
+  flex: 1;
+}
 .add-icon,
 .search-icon {
   position: absolute;
+  top: 25%;
+  left: 5%;
   z-index: 2;
 }
 
-.add-icon {
-  left: 5%;
-}
-.search-icon {
-  right: 45%;
-}
 .input-container {
   position: relative;
   padding: 0px 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
 }
 input {
   border: none;
@@ -104,13 +106,13 @@ input {
   border-bottom: 2px solid #e5e5e5;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
-  width: 100%;
   font-size: 1.2em;
   color: black;
   padding: 20px 0px 20px 60px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
+  width: 100%;
 }
 .edit-input {
   padding: 10px 20px;
@@ -199,25 +201,13 @@ input#search-item:focus {
   .input-container {
     position: relative;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 5px;
   }
   .item-text {
     font-weight: 400;
   }
 
-  .add-icon,
-  .search-icon {
-    position: absolute;
-  }
-  .add-icon {
-    left: 76%;
-    top: 10%;
-  }
-  .search-icon {
-    right: 16%;
-    top: 60%;
-  }
   input {
     font-size: 1em;
     padding: 10px;
@@ -237,6 +227,22 @@ input#search-item:focus {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 1;
+  }
+  ::-webkit-input-placeholder {
+    padding-left: 22%;
+    font-size: 0.8em;
+  }
+  ::-moz-placeholder {
+    padding-left: 22%;
+    font-size: 0.8em;
+  }
+  :-ms-input-placeholder {
+    padding-left: 22%;
+    font-size: 0.8em;
+  }
+  :-moz-placeholder {
+    padding-left: 22%;
+    font-size: 0.8em;
   }
 }
 

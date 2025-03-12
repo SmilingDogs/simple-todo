@@ -11,12 +11,24 @@
     <div id="popup">Task already exists!</div>
     <div id="todo">
       <div class="input-container">
-        <ion-icon name="add-circle-outline" class="add-icon"></ion-icon>
-        <!-- prettier-ignore -->
-        <input id="add-item" type="text" name="text" placeholder="Add an item..."/>
-        <ion-icon name="search-outline" class="search-icon"></ion-icon>
-        <!-- prettier-ignore -->
-        <input id="search-item" type="text" name="search" placeholder="Search an item..."/>
+        <div class="add-container">
+          <ion-icon name="add-circle-outline" class="add-icon"></ion-icon>
+          <input
+            id="add-item"
+            type="text"
+            name="text"
+            placeholder="Add an item..."
+          />
+        </div>
+        <div class="search-container">
+          <ion-icon name="search-outline" class="search-icon"></ion-icon>
+          <input
+            id="search-item"
+            type="text"
+            name="search"
+            placeholder="Search an item..."
+          />
+        </div>
       </div>
       <ul id="list"></ul>
     </div>
