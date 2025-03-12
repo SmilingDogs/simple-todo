@@ -106,7 +106,7 @@ class Controller {
     listItemElement.appendChild(input);
     input.focus();
 
-    input.addEventListener("keydown", (e) => {
+    input.addEventListener("input", (e) => {
       if (e.code === "Enter" || e.code === "NumpadEnter") {
         if (input.value.trim() !== "") {
           listItem.text = input.value.trim();
