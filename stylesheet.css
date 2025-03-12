@@ -275,11 +275,11 @@ input#search-item:focus {
 
   .input-container {
     flex-direction: column;
-    width: 85vw;
+    width: 270px;
   }
   .add-container,
   .search-container {
-    width: 85vw;
+    width: 270px;
   }
   input {
     padding-left: 15%;
