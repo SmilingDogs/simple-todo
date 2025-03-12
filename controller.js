@@ -18,23 +18,37 @@ class Controller {
   }
 
   addTask(e) {
-    if (e.key === "Enter" || e.key === "NumpadEnter" || e.key === "Done") {
-      e.preventDefault();
-      let inputField = document.getElementById("add-item");
-      let inputValue = inputField.value.trim();
-
-      if (!inputValue) return;
-      //prettier-ignore
-      if (model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())) {
-          document.getElementById("popup").classList.add("active");
-          setTimeout(() => {
-            document.getElementById("popup").classList.remove("active");
-          }, 2000);
-          return;
-        }
-      this.addItem(new Task(inputValue));
-      inputField.value = "";
+    if (e.key === "Enter" || e.code === "NumpadEnter") {
+      e.preventDefault(); // Prevent default form behavior
+      this.processTask();
     }
+  }
+
+  handleMobileInput(e) {
+    if (e.inputType === "insertText" && e.data === "\n") {
+      e.preventDefault();
+      this.processTask();
+    }
+  }
+
+  processTask() {
+    let inputField = document.getElementById("add-item");
+    let inputValue = inputField.value.trim();
+
+    if (!inputValue) return;
+
+    if (
+      model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())
+    ) {
+      document.getElementById("popup").classList.add("active");
+      setTimeout(() => {
+        document.getElementById("popup").classList.remove("active");
+      }, 2000);
+      return;
+    }
+
+    this.addItem(new Task(inputValue));
+    inputField.value = "";
   }
 
   searchTask(e) {
@@ -132,11 +146,13 @@ const taskInput = document.getElementById("add-item");
 const searchInput = document.getElementById("search-item");
 
 taskInput.addEventListener("keydown", (e) => controller.addTask(e));
-taskInput.addEventListener("focus", () => {
-  if (model.list.length) {
-    controller.init();
-  }
-});
+taskInput.addEventListener("input", (e) => controller.handleMobileInput(e));
+taskInput.addEventListener("change", () => controller.processTask());
 searchInput.addEventListener("keydown", (e) => controller.searchTask(e));
+
+taskInput.addEventListener("submit", (e) => {
+  e.preventDefault();
+  controller.processTask();
+});
 
 export default controller;
