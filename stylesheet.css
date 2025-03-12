@@ -201,9 +201,9 @@ input#search-item:focus {
     padding: 0px 20px;
   }
   .input-container {
-    position: relative;
+    /* position: relative;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start;*/
     gap: 5px;
   }
   .item-text {
@@ -211,7 +211,7 @@ input#search-item:focus {
   }
 
   input {
-    width: 150%;
+    width: 100%;
     font-size: 1em;
   }
 
@@ -271,7 +271,7 @@ input#search-item:focus {
 
   .input-container {
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
   }
 
   input {
