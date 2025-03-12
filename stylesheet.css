@@ -219,7 +219,9 @@ input#search-item:focus {
     padding: 10px 0px;
     font-size: 1.6em;
   }
-
+  #list {
+    padding: 0px 20px;
+  }
   .input-container {
     position: relative;
     flex-direction: column;
@@ -274,9 +276,11 @@ input#search-item:focus {
     max-width: 90%;
     margin: 10% auto;
     padding: 10px 0px;
-    font-weight: 500;
+    font-size: 1.6em;
   }
-
+  #list {
+    padding: 0px 20px;
+  }
   .input-container {
     flex-direction: column;
     width: 100%;
