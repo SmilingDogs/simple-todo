@@ -6,7 +6,7 @@ let month = new Date().toString().split(" ")[1];
 let year = new Date().getFullYear().toString();
 
 const title = document.querySelector("h1");
-title.textContent = `for ${day} ${month} ${year}`;
+title.textContent = `${day} ${month} ${year}`;
 
 class Controller {
   constructor(view) {
