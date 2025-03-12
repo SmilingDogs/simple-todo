@@ -11,16 +11,6 @@ class View {
     return icon;
   }
 
-  createIconTooltip(text) {
-    const tooltip = document.createElement("div");
-    tooltip.setAttribute("class", "tooltip");
-    const tooltipText = document.createElement("span");
-    tooltipText.setAttribute("class", "tooltip-text");
-    tooltipText.textContent = text;
-    tooltip.append(tooltipText);
-    return tooltip;
-  }
-
   render(what) {
     this.clearList();
 
@@ -39,21 +29,7 @@ class View {
         const star = this.createIcon("star-outline");
         const edit = this.createIcon("create-outline");
 
-        if (i === 0) {
-          const checkTooltip = this.createIconTooltip("Complete");
-          const trashTooltip = this.createIconTooltip("Delete");
-          const starTooltip = this.createIconTooltip("Priority");
-          const editTooltip = this.createIconTooltip("Edit");
-
-          checkTooltip.append(check);
-          trashTooltip.append(trash);
-          starTooltip.append(star);
-          editTooltip.append(edit);
-          //prettier-ignore
-          item.append(span, checkTooltip, trashTooltip, starTooltip, editTooltip);
-        } else {
-          item.append(span, check, trash, star, edit);
-        }
+        item.append(span, check, trash, star, edit);
         list.append(item);
 
         if (what[i].completed) {
