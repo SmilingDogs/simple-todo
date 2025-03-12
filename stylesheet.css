@@ -257,6 +257,7 @@ input#search-item:focus {
     text-align: right;
     font-size: 1.6em;
     right: -12%;
+    top: 0;
   }
 
   #todo {
