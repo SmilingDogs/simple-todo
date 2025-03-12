@@ -197,3 +197,75 @@ input#search-item:focus {
 .tooltip:hover .tooltip-text {
   visibility: visible;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    overflow: auto;
+  }
+
+  h1 {
+    position: relative;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 1.6em;
+    left: 5%;
+  }
+
+  #todo {
+    max-width: 90%;
+    margin: 10% auto;
+    padding: 10px;
+  }
+
+  .input-container {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .add-icon,
+  .search-icon {
+    position: absolute;
+  }
+  .add-icon {
+    left: 75%;
+    top: 10%;
+  }
+  .search-icon {
+    right: 18%;
+    top: 60%;
+  }
+  input {
+    font-size: 1em;
+    padding: 10px;
+  }
+  ion-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 412px) and (max-height: 915px) {
+  h1 {
+    margin-top: 10px;
+    font-size: 1.4em;
+  }
+
+  #todo {
+    max-width: 100%;
+    padding: 8px;
+  }
+
+  .input-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  input {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+}
