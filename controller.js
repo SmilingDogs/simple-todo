@@ -19,7 +19,7 @@ class Controller {
 
   addTask(e) {
     if (e.key === "Enter" || e.code === "NumpadEnter") {
-      e.preventDefault(); // Prevent default form behavior
+      e.preventDefault();
       this.processTask();
     }
   }
@@ -106,8 +106,12 @@ class Controller {
     listItemElement.appendChild(input);
     input.focus();
 
-    input.addEventListener("input", (e) => {
-      if (e.code === "Enter" || e.code === "NumpadEnter") {
+    input.addEventListener("keydown", (e) => {
+      if (
+        e.code === "Enter" ||
+        e.code === "NumpadEnter" ||
+        (e.inputType === "insertText" && e.data === "\n")
+      ) {
         if (input.value.trim() !== "") {
           listItem.text = input.value.trim();
         }
