@@ -61,6 +61,8 @@ h1 {
   padding-bottom: 5px;
   color: brown;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .item-text {
