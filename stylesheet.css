@@ -87,14 +87,14 @@ ion-icon {
 .add-icon,
 .search-icon {
   position: absolute;
-  top: 25%;
+  top: 32%;
   left: 5%;
   z-index: 2;
 }
 
 .input-container {
   position: relative;
-  padding: 0px 30px;
+  padding: 0px 20px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -209,9 +209,10 @@ input#search-item:focus {
   }
 
   input {
+    width: 150%;
     font-size: 1em;
-    padding: 10px;
   }
+
   ion-icon {
     font-size: 1.5rem;
     cursor: pointer;
@@ -229,19 +230,19 @@ input#search-item:focus {
     opacity: 1;
   }
   ::-webkit-input-placeholder {
-    padding-left: 22%;
+    /* padding-left: 22%; */
     font-size: 0.8em;
   }
   ::-moz-placeholder {
-    padding-left: 22%;
+    /* padding-left: 22%; */
     font-size: 0.8em;
   }
   :-ms-input-placeholder {
-    padding-left: 22%;
+    /* padding-left: 22%; */
     font-size: 0.8em;
   }
   :-moz-placeholder {
-    padding-left: 22%;
+    /* padding-left: 22%; */
     font-size: 0.8em;
   }
 }
@@ -265,14 +266,16 @@ input#search-item:focus {
   #list {
     padding: 0px 20px;
   }
+
   .input-container {
     flex-direction: column;
     width: 100%;
   }
 
   input {
+    padding-left: 20%;
     font-size: 0.9em;
-    padding: 8px;
+    width: 100%;
   }
   .item-text {
     font-weight: 400;
