@@ -106,18 +106,21 @@ class Controller {
     listItemElement.appendChild(input);
     input.focus();
 
-    input.addEventListener("keydown", (e) => {
+    const handleEditSubmit = (e) => {
       if (
-        e.code === "Enter" ||
+        e.key === "Enter" ||
         e.code === "NumpadEnter" ||
         (e.inputType === "insertText" && e.data === "\n")
       ) {
+        e.preventDefault();
         if (input.value.trim() !== "") {
           listItem.text = input.value.trim();
         }
         this.updateView();
       }
-    });
+    };
+    input.addEventListener("keydown", handleEditSubmit);
+    input.addEventListener("input", handleEditSubmit);
   }
 
   searchItem(query) {
