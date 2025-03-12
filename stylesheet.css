@@ -271,13 +271,13 @@ input#search-item:focus {
 
   .input-container {
     flex-direction: column;
-    /* width: 100%; */
+    width: 90%;
   }
 
   input {
     padding-left: 20%;
     font-size: 0.9em;
-    width: 100%;
+    width: 90%;
   }
   .item-text {
     font-weight: 400;
