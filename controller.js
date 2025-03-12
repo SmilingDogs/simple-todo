@@ -19,31 +19,30 @@ class Controller {
 
   addTask(e) {
     if (e.code == "Enter" || e.code == "NumpadEnter") {
-      let inputValue = document.getElementById("add-item").value;
+      e.preventDefault();
+      let inputField = document.getElementById("add-item");
+      let inputValue = inputField.value.trim();
+
+      if (!inputValue) return;
       //prettier-ignore
       if (model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())) {
           document.getElementById("popup").classList.add("active");
           setTimeout(() => {
             document.getElementById("popup").classList.remove("active");
           }, 2000);
-          e.preventDefault();
-            return;
+          return;
         }
-      if (inputValue != "" && inputValue.trim() != "") {
-        this.addItem(new Task(inputValue));
-        e.preventDefault();
-        return;
-      }
+      this.addItem(new Task(inputValue));
+      inputField.value = "";
     }
   }
 
   searchTask(e) {
     if (e.code == "Enter" || e.code == "NumpadEnter") {
-      let inputValue = document.getElementById("search-item").value;
-      if (inputValue != "" && inputValue != " ") {
+      e.preventDefault();
+      let inputValue = document.getElementById("search-item").value.trim();
+      if (inputValue) {
         this.searchItem(inputValue);
-        e.preventDefault();
-        return;
       }
     }
   }
