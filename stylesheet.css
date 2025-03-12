@@ -214,9 +214,10 @@ input#search-item:focus {
   }
 
   #todo {
-    max-width: 90%;
+    max-width: 70%;
     margin: 10% auto;
     padding: 10px;
+    font-size: 600;
   }
 
   .input-container {
@@ -270,7 +271,6 @@ input#search-item:focus {
     max-width: 50%;
     margin: 10% auto;
     padding: 10px;
-    font-size: 600;
   }
 
   .input-container {
