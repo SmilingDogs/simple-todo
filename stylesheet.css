@@ -217,7 +217,7 @@ input#search-item:focus {
     max-width: 70%;
     margin: 10% auto;
     padding: 10px;
-    font-size: 600;
+    font-weight: 600;
   }
 
   .input-container {
