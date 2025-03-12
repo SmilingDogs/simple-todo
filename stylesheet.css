@@ -84,7 +84,7 @@ ion-icon {
 .add-container,
 .search-container {
   position: relative;
-  flex: 1;
+  /* flex: 1; */
 }
 .add-icon,
 .search-icon {
