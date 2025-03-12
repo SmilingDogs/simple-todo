@@ -84,7 +84,7 @@ ion-icon {
 .add-container,
 .search-container {
   position: relative;
-  /* flex: 1; */
+  flex: 1;
 }
 .add-icon,
 .search-icon {
@@ -201,17 +201,21 @@ input#search-item:focus {
     padding: 0px 20px;
   }
   .input-container {
-    /* position: relative;
+    position: relative;
     flex-direction: column;
-    align-items: flex-start;*/
+    align-items: flex-start;
     gap: 5px;
+  }
+  .add-container,
+  .search-container {
+    width: 90%;
   }
   .item-text {
     font-weight: 400;
   }
 
   input {
-    width: 100%;
+    width: 90%;
     font-size: 1em;
   }
 
@@ -273,11 +277,14 @@ input#search-item:focus {
     flex-direction: column;
     width: 90%;
   }
-
+  .add-container,
+  .search-container {
+    width: 90%;
+  }
   input {
     padding-left: 20%;
     font-size: 0.9em;
-    width: 90%;
+    /* width: 90%; */
   }
   .item-text {
     font-weight: 400;
