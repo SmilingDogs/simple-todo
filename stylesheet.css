@@ -216,9 +216,8 @@ input#search-item:focus {
   #todo {
     max-width: 90%;
     margin: 10% auto;
-    padding: 10px;
+    padding: 10px 0px;
     font-size: 1.6em;
-    font-weight: 500;
   }
 
   .input-container {
@@ -226,6 +225,9 @@ input#search-item:focus {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+  }
+  .item-text {
+    font-weight: 400;
   }
 
   .add-icon,
@@ -271,7 +273,7 @@ input#search-item:focus {
   #todo {
     max-width: 90%;
     margin: 10% auto;
-    padding: 10px;
+    padding: 10px 0px;
     font-weight: 500;
   }
 
@@ -283,5 +285,8 @@ input#search-item:focus {
   input {
     font-size: 0.9em;
     padding: 8px;
+  }
+  .item-text {
+    font-weight: 400;
   }
 }
