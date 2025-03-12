@@ -18,7 +18,7 @@ class Controller {
   }
 
   addTask(e) {
-    if (e.code == "Enter" || e.code == "NumpadEnter") {
+    if (e.key === "Enter" || e.key === "NumpadEnter" || e.key === "Done") {
       e.preventDefault();
       let inputField = document.getElementById("add-item");
       let inputValue = inputField.value.trim();
@@ -38,7 +38,7 @@ class Controller {
   }
 
   searchTask(e) {
-    if (e.code == "Enter" || e.code == "NumpadEnter") {
+    if (e.key === "Enter" || e.key === "NumpadEnter" || e.key === "Done") {
       e.preventDefault();
       let inputValue = document.getElementById("search-item").value.trim();
       if (inputValue) {
