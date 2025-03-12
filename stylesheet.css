@@ -267,7 +267,7 @@ input#search-item:focus {
   }
 
   #todo {
-    max-width: 90%;
+    max-width: 50%;
     margin: 10% auto;
     padding: 10px;
   }
