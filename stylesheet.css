@@ -260,7 +260,7 @@ input#search-item:focus {
 
   #todo {
     max-width: 90%;
-    padding: 0px 10px;
+    padding: 0px 5px;
     margin: 10% auto;
     font-size: 1.3em;
   }
