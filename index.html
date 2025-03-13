@@ -31,19 +31,20 @@
         </div>
       </div>
       <ul id="list"></ul>
-      <div id="task-details" style="display: none">
-        <h2 id="task-title"></h2>
-        <label for="task-deadline">Deadline:</label>
-        <input type="date" id="task-deadline" />
-
-        <label for="task-details-text">Details:</label>
-        <textarea
-          id="task-details-text"
-          rows="5"
-          placeholder="Add details..."
-        ></textarea>
-
-        <a href="#" onclick="window.location.hash=''">Back to todos</a>
+    </div>
+    <div id="task-details" style="display: none">
+      <h2 id="task-title"></h2>
+      <label for="task-details-text">Details:</label>
+      <textarea
+        id="task-details-text"
+        rows="7"
+        placeholder="Add details..."
+      ></textarea>
+      <label for="task-deadline">Deadline:</label>
+      <input type="date" id="task-deadline" class="date-input" />
+      <div class="back-container">
+        <ion-icon name="chevron-back-outline" class="icon-back"></ion-icon>
+        <a href="#/todos/">Back to todos</a>
       </div>
     </div>
     <!-- prettier-ignore -->

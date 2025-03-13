@@ -14,18 +14,22 @@ body {
   background-size: cover;
   color: brown;
 }
+a {
+  text-decoration: none;
+  color: brown;
+}
 
 h1 {
   text-align: right;
   margin-right: 18%;
-  margin-top: 25px;
+  margin-top: 45px;
   font-size: 2em;
   font-weight: 700;
   font-style: italic;
 }
 
 #todo {
-  margin: 4% 7% 0 40%;
+  margin: 3% 7% 0 40%;
   padding: 0px 30px;
   background: white;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -175,6 +179,55 @@ input#search-item:focus {
   opacity: 1;
 }
 
+#task-details {
+  margin: 4% 40% 0 7%;
+  padding: 30px;
+  background: white;
+  font-size: 1.3em;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 35vw;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  max-height: 70vh;
+  overflow-x: hidden;
+}
+
+.date-input {
+  border: none;
+  background: #fef2f2;
+  border-bottom: 2px solid #e5e5e5;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: black;
+  padding: 20px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+  max-width: 80%;
+  font-size: 0.9em;
+}
+
+#task-details-text {
+  max-width: 80%;
+  font-size: 0.9em;
+  padding: 0px 0.9em;
+}
+
+.back-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  left: -3%;
+}
+
+.icon-back {
+  font-size: 1.8rem;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   body {

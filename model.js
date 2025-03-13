@@ -1,5 +1,6 @@
 class Task {
   constructor(text) {
+    this.id = text;
     this.text = text;
     this.completed = false;
     this.priority = false;

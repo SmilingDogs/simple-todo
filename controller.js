@@ -1,5 +1,6 @@
 import { Task, model } from "./model.js";
 import View from "./view.js";
+import Router from "./router.js";
 //prettier-ignore
 let day = new Date().getDate() < 10 ? "0" + new Date().getDate() : new Date().getDate();
 let month = new Date().toString().split(" ")[1];
@@ -11,10 +12,61 @@ title.textContent = `${day} ${month} ${year}`;
 class Controller {
   constructor(view) {
     this.view = view;
+    new Router(this);
   }
 
   init() {
     this.view.render(model.list);
+    console.log(model.list);
+  }
+
+  showTodoList() {
+    document.getElementById("todo").style.display = "block";
+    document.getElementById("task-details").style.display = "none";
+    this.updateView();
+  }
+
+  showTaskDetails(taskId) {
+    document.getElementById("todo").style.display = "none";
+    document.getElementById("task-details").style.display = "flex";
+
+    const task = model.list.find((t) => t.id === taskId);
+    if (task) {
+      document.getElementById("task-title").textContent = task.text;
+      const deadlineInput = document.getElementById("task-deadline");
+      deadlineInput.value = task.deadline || "";
+      const today = new Date().toISOString().split("T")[0];
+      deadlineInput.setAttribute("min", today);
+
+      deadlineInput.addEventListener("change", () =>
+        this.updateDeadline(taskId, deadlineInput.value)
+      );
+
+      const detailsTextarea = document.getElementById("task-details-text");
+      detailsTextarea.value = task.details || "";
+      detailsTextarea.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          this.updateTaskDetails(taskId, detailsTextarea.value);
+        }
+      });
+    }
+  }
+
+  updateDeadline(taskId, deadline) {
+    const task = model.list.find((t) => t.id === taskId);
+    if (task) {
+      task.deadline = deadline;
+      localStorage.setItem("todos", JSON.stringify(model.list));
+    }
+  }
+
+  updateTaskDetails(taskId, details) {
+    const task = model.list.find((t) => t.id === taskId);
+    if (task) {
+      task.details = details;
+      localStorage.setItem("todos", JSON.stringify(model.list));
+    }
   }
 
   addTask(e) {
@@ -40,11 +92,7 @@ class Controller {
     if (
       model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())
     ) {
-      document.getElementById("popup").classList.add("active");
-      setTimeout(() => {
-        document.getElementById("popup").classList.remove("active");
-      }, 2000);
-      return;
+      this.firePopup("Task already exists");
     }
 
     this.addItem(new Task(inputValue));
@@ -144,13 +192,29 @@ class Controller {
     this.view.render(model.list);
     this.save();
   }
+
+  firePopup(text) {
+    const popup = document.getElementById("popup");
+    popup.textContent = text;
+    popup.classList.add("active");
+    setTimeout(() => {
+      document.getElementById("popup").classList.remove("active");
+    }, 2000);
+    return;
+  }
+
+  performNavigation() {
+    return (window.location.href = "#/todos/");
+  }
 }
+
 const view = new View();
 const controller = new Controller(view);
 controller.init();
 
 const taskInput = document.getElementById("add-item");
 const searchInput = document.getElementById("search-item");
+const backIcon = document.querySelector(".icon-back");
 
 taskInput.addEventListener("keydown", (e) => controller.addTask(e));
 taskInput.addEventListener("input", (e) => controller.handleMobileInput(e));
@@ -161,5 +225,7 @@ taskInput.addEventListener("submit", (e) => {
   e.preventDefault();
   controller.processTask();
 });
+
+backIcon.addEventListener("click", () => controller.performNavigation());
 
 export default controller;

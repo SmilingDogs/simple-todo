@@ -29,7 +29,10 @@ class View {
         const star = this.createIcon("star-outline");
         const edit = this.createIcon("create-outline");
 
-        item.append(span, check, trash, star, edit);
+        const link = document.createElement("a");
+        link.href = `#/todos/${what[i].id}`;
+        link.append(span);
+        item.append(link, check, trash, star, edit);
         list.append(item);
 
         if (what[i].completed) {
