@@ -275,16 +275,16 @@ input#search-item:focus {
 
   .input-container {
     flex-direction: column;
-    width: 270px;
+    /* width: 270px; */
   }
   .add-container,
   .search-container {
-    width: 270px;
-  }
+    /* width: 270px;
+  } */
   input {
-    padding-left: 15%;
+    padding-left: 20%;
     font-size: 0.9em;
-    /* width: 90%; */
+    width: 240px;
   }
   .item-text {
     font-weight: 400;
