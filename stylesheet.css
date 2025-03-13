@@ -208,15 +208,15 @@ input#search-item:focus {
   }
   .add-container,
   .search-container {
-    width: 90%;
+    width: 100%;
   }
   .item-text {
     font-weight: 400;
   }
 
   input {
-    width: 90%;
-    font-size: 1em;
+    width: 100%;
+    max-width: 100%;
   }
 
   ion-icon {
@@ -279,12 +279,15 @@ input#search-item:focus {
   }
   .add-container,
   .search-container {
-    /* width: 270px; */
+    width: 100%;
   }
   input {
+    box-sizing: border-box;
     padding: 10px 0px 10px 20%;
     font-size: 0.9em;
-    width: 240px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
   }
   .item-text {
     font-weight: 400;
