@@ -282,7 +282,7 @@ input#search-item:focus {
     /* width: 270px; */
   }
   input {
-    padding-left: 20%;
+    padding: 10px 0px 10px 20%;
     font-size: 0.9em;
     width: 240px;
   }
