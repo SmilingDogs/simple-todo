@@ -88,11 +88,10 @@ class Controller {
     let inputValue = inputField.value.trim();
 
     if (!inputValue) return;
-
-    if (
-      model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())
-    ) {
+    //prettier-ignore
+    if (model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())) {
       this.firePopup("Task already exists");
+      return;
     }
 
     this.addItem(new Task(inputValue));
@@ -200,7 +199,6 @@ class Controller {
     setTimeout(() => {
       document.getElementById("popup").classList.remove("active");
     }, 2000);
-    return;
   }
 
   performNavigation() {

@@ -9,7 +9,9 @@ class Router {
   handleRouteChange() {
     const hash = window.location.hash;
     let taskId = hash.split("/").pop();
-
+    if (taskId.includes("%20")) {
+      taskId = decodeURIComponent(taskId);
+    }
     if (taskId == "undefined" || taskId == "") {
       this.controller.showTodoList();
     } else {
