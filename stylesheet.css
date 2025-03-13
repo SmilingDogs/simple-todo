@@ -279,8 +279,8 @@ input#search-item:focus {
   }
   .add-container,
   .search-container {
-    /* width: 270px;
-  } */
+    /* width: 270px; */
+  }
   input {
     padding-left: 20%;
     font-size: 0.9em;
