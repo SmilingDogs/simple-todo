@@ -288,10 +288,14 @@ input#search-item:focus {
     left: 5%;
     z-index: 2;
   }
+  ion-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
   input {
     box-sizing: border-box;
-    height: 40px;
-    padding: 5px 0px 5px 20%;
+    height: 30px;
+    padding: 5px 0px 5px 45px;
     font-size: 0.8em;
     width: 100%;
     max-width: 100%;
