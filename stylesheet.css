@@ -281,6 +281,13 @@ input#search-item:focus {
   .search-container {
     width: 100%;
   }
+  .add-icon,
+  .search-icon {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 2;
+  }
   input {
     box-sizing: border-box;
     padding: 6px 0px 5px 20%;
