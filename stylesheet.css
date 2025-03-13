@@ -18,20 +18,56 @@ body {
 h1 {
   text-align: right;
   margin-right: 18%;
-  margin-top: 15px;
+  margin-top: 25px;
   font-size: 2em;
   font-weight: 700;
   font-style: italic;
 }
 
 #todo {
-  margin: 5% 7% 0 40%;
-  max-width: 75%;
+  margin: 4% 7% 0 40%;
+  padding: 0px 30px;
   background: white;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   max-height: 70vh;
   overflow-x: hidden;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.add-container,
+.search-container {
+  position: relative;
+  flex: 1;
+}
+
+.add-icon,
+.search-icon {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+input {
+  border: none;
+  background: #f6f4f4;
+  border-bottom: 2px solid #e5e5e5;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  font-size: 1.2em;
+  color: black;
+  padding: 20px 0px 20px 60px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+  width: 100%;
 }
 
 #todo::-webkit-scrollbar {
@@ -44,7 +80,6 @@ h1 {
 }
 
 #list {
-  padding: 0px 30px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
@@ -81,41 +116,6 @@ ion-icon {
   cursor: pointer;
 }
 
-.add-container,
-.search-container {
-  position: relative;
-  flex: 1;
-}
-.add-icon,
-.search-icon {
-  position: absolute;
-  top: 32%;
-  left: 5%;
-  z-index: 2;
-}
-
-.input-container {
-  position: relative;
-  padding: 0px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-}
-input {
-  border: none;
-  background: #f6f4f4;
-  border-bottom: 2px solid #e5e5e5;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  font-size: 1.2em;
-  color: black;
-  padding: 20px 0px 20px 60px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
-  width: 100%;
-}
 .edit-input {
   padding: 10px 20px;
   width: 100%;
@@ -192,15 +192,14 @@ input#search-item:focus {
 
   #todo {
     max-width: 90%;
-    max-height: 70%;
+    /* max-height: 70%; */
+    padding: 0px 30px;
     margin: 10% auto;
-    padding: 10px 0px;
     font-size: 1.6em;
   }
-  #list {
-    padding: 0px 20px;
-  }
+
   .input-container {
+    padding-top: 2.5%;
     position: relative;
     flex-direction: column;
     align-items: flex-start;
@@ -217,6 +216,7 @@ input#search-item:focus {
   input {
     width: 100%;
     max-width: 100%;
+    padding: 10px 0px 10px 12%;
   }
 
   ion-icon {
@@ -236,19 +236,15 @@ input#search-item:focus {
     opacity: 1;
   }
   ::-webkit-input-placeholder {
-    /* padding-left: 22%; */
     font-size: 0.8em;
   }
   ::-moz-placeholder {
-    /* padding-left: 22%; */
     font-size: 0.8em;
   }
   :-ms-input-placeholder {
-    /* padding-left: 22%; */
     font-size: 0.8em;
   }
   :-moz-placeholder {
-    /* padding-left: 22%; */
     font-size: 0.8em;
   }
 }
@@ -263,20 +259,16 @@ input#search-item:focus {
   }
 
   #todo {
-    /* max-width: 90%;
-    max-height: 70%; */
-    margin: 10% auto;
-    padding: 10px 0px;
-    font-size: 1.6em;
-  }
-  /* #list {
+    max-width: 90%;
     padding: 0px 20px;
-  } */
+    margin: 10% auto;
+    font-size: 1.3em;
+  }
 
   .input-container {
     flex-direction: column;
-    /* width: 270px; */
   }
+
   .add-container,
   .search-container {
     width: 100%;
@@ -295,7 +287,7 @@ input#search-item:focus {
   input {
     box-sizing: border-box;
     height: 30px;
-    padding: 5px 0px 5px 45px;
+    padding: 5px 0px 5px 20%;
     font-size: 0.7em;
     width: 100%;
     max-width: 100%;
