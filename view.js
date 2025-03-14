@@ -47,6 +47,12 @@ class View {
 
         what[i].priority ? (star.name = "star") : (star.name = "star-outline");
 
+        if (what[i].deadline) {
+          const deadline = this.createIcon("alarm-outline");
+          deadline.setAttribute("class", "deadline-icon");
+          link.append(deadline);
+        }
+
         check.addEventListener("click", () => controller.completeItem(what[i]));
         trash.addEventListener("click", () => controller.deleteItem(what[i]));
         //prettier-ignore
