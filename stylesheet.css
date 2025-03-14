@@ -374,7 +374,7 @@ input#search-item:focus {
   #task-details {
     margin: 10% auto;
     padding: 15px;
-    max-width: 90vw;
+    width: 90%;
     font-size: 1em;
   }
 
