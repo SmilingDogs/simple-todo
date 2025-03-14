@@ -330,7 +330,7 @@ input#search-item:focus {
   }
 }
 
-@media (max-width: 325px) {
+@media (max-width: 320px) {
   #todo {
     max-width: 90%;
     padding: 0px 5px;
@@ -351,7 +351,7 @@ input#search-item:focus {
     position: absolute;
     top: 20%;
     left: 5%;
-    /* z-index: 2; */
+    z-index: 2;
     padding-right: 6px;
   }
   ion-icon {
@@ -374,9 +374,10 @@ input#search-item:focus {
   #task-details {
     margin: 10% auto;
     padding: 15px;
-    width: 90%;
+    width: 90%; /* Set width to 90% */
     min-width: 90%;
     font-size: 1em;
+    text-align: center; /* Center align the element */
   }
 
   .back-container {
