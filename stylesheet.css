@@ -375,6 +375,7 @@ input#search-item:focus {
     margin: 10% auto;
     padding: 15px;
     width: 90%;
+    min-width: 90%;
     font-size: 1em;
   }
 
