@@ -203,6 +203,8 @@ input#search-item:focus {
   display: flex;
   align-items: center;
   width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 .calendar-icon {
@@ -350,6 +352,10 @@ input#search-item:focus {
   .back-container {
     left: 0;
     font-size: 1em;
+  }
+  .date-input {
+    padding: 15px 0px 15px 35px; /* Adjust padding for smaller screens */
+    font-size: 0.8em;
   }
 }
 
