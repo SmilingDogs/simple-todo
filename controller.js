@@ -13,6 +13,8 @@ class Controller {
   constructor(view) {
     this.view = view;
     new Router(this);
+    this.handleDeadlineChange = null;
+    this.handleDetailsKeydown = null;
   }
 
   init() {
@@ -22,7 +24,8 @@ class Controller {
   showTodoList() {
     document.getElementById("todo").style.display = "block";
     document.getElementById("task-details").style.display = "none";
-    this.updateView();
+    this.view.render(model.list);
+    console.log(model.list);
   }
 
   showTaskDetails(taskId) {
@@ -37,18 +40,31 @@ class Controller {
       const today = new Date().toISOString().split("T")[0];
       deadlineInput.setAttribute("min", today);
 
-      deadlineInput.addEventListener("change", () =>
-        this.updateDeadline(taskId, deadlineInput.value)
-      );
+      // Remove any existing event listeners before adding a new one
+      if (this.handleDeadlineChange) {
+        deadlineInput.removeEventListener("change", this.handleDeadlineChange);
+      }
+      this.handleDeadlineChange = () =>
+        this.updateDeadline(taskId, deadlineInput.value);
+      deadlineInput.addEventListener("change", this.handleDeadlineChange);
 
       const detailsTextarea = document.getElementById("task-details-text");
       detailsTextarea.value = task.details || "";
-      detailsTextarea.addEventListener("keydown", (event) => {
+
+      // Remove any existing event listeners before adding a new one
+      if (this.handleDetailsKeydown) {
+        detailsTextarea.removeEventListener(
+          "keydown",
+          this.handleDetailsKeydown
+        );
+      }
+      this.handleDetailsKeydown = (event) => {
         if (event.key === "Enter" && !event.shiftKey) {
           event.preventDefault();
           this.updateTaskDetails(taskId, detailsTextarea.value);
         }
-      });
+      };
+      detailsTextarea.addEventListener("keydown", this.handleDetailsKeydown);
     }
   }
 
