@@ -352,11 +352,11 @@ input#search-item:focus {
     font-size: 1em;
   }
   .date-input {
-    padding: 15px 0px 15px 35px; /* Adjust padding for smaller screens */
+    padding: 25px 0px 25px 50px; /* Adjust padding for smaller screens */
     font-size: 0.8em;
-    width: 100%;
+    /* width: 100%;
     max-width: 100%;
-    min-width: 100%;
+    min-width: 100%; */
   }
 }
 
@@ -400,10 +400,10 @@ input#search-item:focus {
   }
 
   .date-input {
-    padding: 15px 0px 15px 35px; /* Adjust padding for smaller screens */
+    /* padding: 15px 0px 15px 35px; */
     font-size: 0.8em;
-    width: 100%; /* Ensure it takes all available width */
-    max-width: 100%; /* Ensure it takes all available width */
-    min-width: 100%; /* Ensure it takes all available width */
+    /* width: 100%; 
+    max-width: 100%; 
+    min-width: 100%;  */
   }
 }
