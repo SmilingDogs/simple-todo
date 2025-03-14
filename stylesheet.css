@@ -315,7 +315,7 @@ input#search-item:focus {
   #task-details {
     padding: 20px;
     margin: 5% auto;
-    max-width: 45%;
+    max-width: 90%;
     font-size: 1.2em;
   }
 
