@@ -220,7 +220,7 @@ input#search-item:focus {
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   color: black;
-  padding: 20px 0px 20px 40px; /* Adjust padding to make space for the icon */
+  padding: 25px 0px 25px 50px; /* Adjust padding to make space for the icon */
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
@@ -400,7 +400,7 @@ input#search-item:focus {
   }
 
   .date-input {
-    /* padding: 15px 0px 15px 35px; */
+    padding: 15px 0px 15px 35px;
     font-size: 0.8em;
     /* width: 100%; 
     max-width: 100%; 
