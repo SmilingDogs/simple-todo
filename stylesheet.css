@@ -352,7 +352,7 @@ input#search-item:focus {
     position: absolute;
     top: 20%;
     left: 5%;
-    z-index: 2;
+    /* z-index: 2; */
     padding-right: 25px;
   }
   ion-icon {
@@ -362,7 +362,7 @@ input#search-item:focus {
   input {
     box-sizing: border-box;
     height: 30px;
-    padding: 5px 0px 5px 25px; /* Increased padding to provide more space */
+    padding-left: 75px; /* Increased padding to provide more space */
     font-size: 0.7em;
     width: 100%;
     max-width: 100%;
