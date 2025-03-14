@@ -359,7 +359,7 @@ input#search-item:focus {
   input {
     box-sizing: border-box;
     height: 30px;
-    padding: 5px 0px 5px 55px;
+    padding: 5px 0px 5px 65px;
     font-size: 0.7em;
     width: 100%;
     max-width: 100%;
