@@ -202,9 +202,6 @@ input#search-item:focus {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
 }
 
 .calendar-icon {
@@ -226,6 +223,9 @@ input#search-item:focus {
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
   font-size: 0.9em;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 #task-details-text {
@@ -300,7 +300,7 @@ input#search-item:focus {
   input {
     box-sizing: border-box;
     height: 30px;
-    padding-left: 75px; /* Increased padding to provide more space */
+    padding-left: 45px; /* Increased padding to provide more space */
     font-size: 0.7em;
     width: 100%;
     max-width: 100%;
