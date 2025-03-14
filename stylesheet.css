@@ -272,6 +272,7 @@ input#search-item:focus {
     z-index: 2;
     margin-right: 50px;
   }
+
   .item {
     gap: 6px;
   }
@@ -351,13 +352,7 @@ input#search-item:focus {
   .search-container {
     width: 100%;
   }
-  .add-icon,
-  .search-icon {
-    top: 20%;
-    left: 84%;
-    z-index: 2;
-    margin-right: 50px;
-  }
+
   ion-icon {
     font-size: 1.2rem;
     cursor: pointer;
