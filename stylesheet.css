@@ -98,7 +98,6 @@ input {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 5px;
-  color: brown;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -167,7 +166,6 @@ input#search-item:focus {
   align-items: center;
   font-size: 1.5em;
   background-color: #ffffff;
-  color: brown;
   padding: 0 10px;
   font-weight: normal;
   left: 25%;
@@ -349,10 +347,9 @@ input#search-item:focus {
   }
   .add-icon,
   .search-icon {
-    position: absolute;
     top: 20%;
     left: 84%;
-    /* z-index: 2; */
+    z-index: 2;
     margin-right: 50px;
   }
   ion-icon {
