@@ -299,8 +299,8 @@ input#search-item:focus {
   input {
     box-sizing: border-box;
     height: 30px;
-    padding-left: 45px; /* Increased padding to provide more space */
-    font-size: 0.7em;
+    padding-left: 35px; /* Increased padding to provide more space */
+    font-size: 0.8em;
     width: 100%;
     max-width: 100%;
     min-width: 100%;
