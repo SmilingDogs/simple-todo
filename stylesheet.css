@@ -223,9 +223,6 @@ input#search-item:focus {
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
   font-size: 0.9em;
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
 }
 
 #task-details-text {
@@ -344,8 +341,7 @@ input#search-item:focus {
     font-size: 1.2em;
   }
 
-  #task-details-text,
-  #task-deadline {
+  #task-details-text {
     width: 100%;
   }
 
@@ -356,6 +352,9 @@ input#search-item:focus {
   .date-input {
     padding: 15px 0px 15px 35px; /* Adjust padding for smaller screens */
     font-size: 0.8em;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
   }
 }
 
