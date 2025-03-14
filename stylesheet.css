@@ -241,6 +241,7 @@ input#search-item:focus {
 
   h1 {
     position: relative;
+    margin-top: 20px;
     padding-top: 15px;
     text-align: right;
     font-size: 1.6em;
