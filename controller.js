@@ -17,7 +17,6 @@ class Controller {
 
   init() {
     this.view.render(model.list);
-    console.log(model.list);
   }
 
   showTodoList() {

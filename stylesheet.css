@@ -104,11 +104,15 @@ input {
   justify-content: flex-end;
 }
 
+.item-link {
+  flex: 1;
+  border-bottom: 1px solid #666666;
+}
+
 .item-text {
   font-weight: 200;
   font-size: 24px;
   flex-grow: 1;
-  border-bottom: 1px solid #666666;
 }
 
 .item-text[style*="text-decoration: line-through"] {
@@ -180,13 +184,13 @@ input#search-item:focus {
 }
 
 #task-details {
-  margin: 4% 40% 0 7%;
+  margin: 3% 40% 0px 7%;
   padding: 30px;
   background: white;
   font-size: 1.3em;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  max-width: 35vw;
+  max-width: 25vw;
   overflow-x: hidden;
   flex-direction: column;
   justify-content: flex-start;
@@ -207,14 +211,14 @@ input#search-item:focus {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
-  max-width: 80%;
   font-size: 0.9em;
 }
 
 #task-details-text {
-  max-width: 80%;
   font-size: 0.9em;
-  padding: 0px 0.9em;
+  padding: 5px 0.9em;
+  outline-color: brown;
+  max-width: 100%;
 }
 
 .back-container {
@@ -222,17 +226,17 @@ input#search-item:focus {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  left: -3%;
+  left: -2%;
+  font-size: 0.8em;
 }
 
 .icon-back {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
     background-size: cover;
-    overflow: auto;
   }
 
   h1 {
@@ -245,9 +249,8 @@ input#search-item:focus {
 
   #todo {
     max-width: 90%;
-    /* max-height: 70%; */
     padding: 0px 30px;
-    margin: 10% auto;
+    margin: 5% auto;
     font-size: 1.6em;
   }
 
@@ -258,10 +261,16 @@ input#search-item:focus {
     align-items: flex-start;
     gap: 5px;
   }
+
   .add-container,
   .search-container {
     width: 100%;
   }
+
+  .item {
+    gap: 6px;
+  }
+
   .item-text {
     font-weight: 400;
   }
@@ -270,6 +279,7 @@ input#search-item:focus {
     width: 100%;
     max-width: 100%;
     padding: 10px 0px 10px 12%;
+    font-size: 1em;
   }
 
   ion-icon {
@@ -300,17 +310,26 @@ input#search-item:focus {
   :-moz-placeholder {
     font-size: 0.8em;
   }
+
+  #task-details {
+    padding: 20px;
+    margin: 5% auto;
+    max-width: 45%;
+    font-size: 1.2em;
+  }
+
+  #task-details-text,
+  #task-deadline {
+    width: 100%;
+  }
+
+  .back-container {
+    left: 0;
+    font-size: 1em;
+  }
 }
 
 @media (max-width: 320px) {
-  h1 {
-    position: relative;
-    text-align: right;
-    font-size: 1.6em;
-    right: -12%;
-    top: 0;
-  }
-
   #todo {
     max-width: 90%;
     padding: 0px 5px;
@@ -348,5 +367,17 @@ input#search-item:focus {
   }
   .item-text {
     font-weight: 400;
+  }
+
+  #task-details {
+    margin: 10% auto;
+    padding: 15px;
+    max-width: 90%;
+    font-size: 1em;
+  }
+
+  .back-container {
+    left: 0;
+    font-size: 0.7em;
   }
 }
