@@ -17,12 +17,17 @@ function checkNotificationSupport() {
 
   if (Notification.permission === "granted") {
     console.log("Notification permission granted.");
-    new Notification("Why notification not showing?");
+    new Notification("Test Notification", {
+      body: "This is a test notification.",
+    });
     return true;
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then((permission) => {
       if (permission === "granted") {
-        console.log("Notification permission granted.");
+        console.log("Notification permission granted after request.");
+        new Notification("Test Notification", {
+          body: "This is a test notification.",
+        });
         return true;
       } else {
         console.log("Notification permission denied.");
