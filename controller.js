@@ -17,6 +17,7 @@ function checkNotificationSupport() {
 
   if (Notification.permission === "granted") {
     console.log("Notification permission granted.");
+    new Notification("Notifications are supported!");
     return true;
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then((permission) => {
