@@ -9,12 +9,39 @@ let year = new Date().getFullYear().toString();
 const title = document.querySelector("h1");
 title.textContent = `${day} ${month} ${year}`;
 
+function checkNotificationSupport() {
+  if (!("Notification" in window)) {
+    console.log("This browser does not support desktop notifications.");
+    return false;
+  }
+
+  if (Notification.permission === "granted") {
+    console.log("Notification permission granted.");
+    return true;
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        console.log("Notification permission granted.");
+        return true;
+      } else {
+        console.log("Notification permission denied.");
+        return false;
+      }
+    });
+  } else {
+    console.log("Notification permission denied.");
+    return false;
+  }
+}
 class Controller {
   constructor(view) {
     this.view = view;
     new Router(this);
     this.handleDeadlineChange = null;
     this.handleDetailsKeydown = null;
+
+    // Check notification support and request permission if needed
+    this.notificationSupported = checkNotificationSupport();
   }
 
   init() {
@@ -35,18 +62,36 @@ class Controller {
     const task = model.list.find((t) => t.id === taskId);
     if (task) {
       document.getElementById("task-title").textContent = task.text;
-      const deadlineInput = document.getElementById("task-deadline");
-      deadlineInput.value = task.deadline || "";
+
       const today = new Date().toISOString().split("T")[0];
+      const deadlineInput = document.getElementById("task-deadline");
+      const timeInput = document.getElementById("task-time");
+
+      let storedDate, storedTime;
+
+      if (task.deadline) {
+        [storedDate, storedTime] = task.deadline.split(" ");
+      }
+
+      deadlineInput.value = storedDate || "";
+      timeInput.value = storedTime || "";
+
       deadlineInput.setAttribute("min", today);
+
+      if (storedDate) {
+        timeInput.style.display = "block";
+      } else {
+        timeInput.style.display = "none";
+      }
 
       // Remove any existing event listeners before adding a new one
       if (this.handleDeadlineChange) {
         deadlineInput.removeEventListener("change", this.handleDeadlineChange);
+        timeInput.removeEventListener("change", this.handleDeadlineChange);
       }
-      this.handleDeadlineChange = () =>
-        this.updateDeadline(taskId, deadlineInput.value);
+      this.handleDeadlineChange = () => this.updateDeadline(taskId);
       deadlineInput.addEventListener("change", this.handleDeadlineChange);
+      timeInput.addEventListener("change", this.handleDeadlineChange);
 
       const detailsTextarea = document.getElementById("task-details-text");
       detailsTextarea.value = task.details || "";
@@ -68,10 +113,25 @@ class Controller {
     }
   }
 
-  updateDeadline(taskId, deadline) {
+  updateDeadline(taskId) {
     const task = model.list.find((t) => t.id === taskId);
     if (task) {
-      task.deadline = deadline;
+      let deadlineValue = document.getElementById("task-deadline").value;
+      const timeInput = document.getElementById("task-time");
+
+      if (!deadlineValue) {
+        // If deadline is cleared, hide the time input and set its value to an empty string
+        timeInput.style.display = "none";
+        timeInput.value = "";
+        task.deadline = "";
+      } else {
+        // If deadline is set, show the time input
+        timeInput.style.display = "block";
+        let timeValue = timeInput.value || "12:00";
+        task.deadline = `${deadlineValue} ${timeValue}`;
+        this.scheduleNotification(taskId, task.deadline);
+      }
+
       localStorage.setItem("todos", JSON.stringify(model.list));
     }
   }
@@ -81,6 +141,33 @@ class Controller {
     if (task) {
       task.details = details;
       localStorage.setItem("todos", JSON.stringify(model.list));
+    }
+  }
+
+  scheduleNotification(taskId, deadline) {
+    const task = model.list.find((t) => t.id === taskId);
+    if (!task || !deadline) return;
+
+    const deadlineTime = new Date(deadline).getTime();
+    const currentTime = new Date().getTime();
+    const timeUntilDeadline = deadlineTime - currentTime;
+
+    if (timeUntilDeadline > 0) {
+      setTimeout(() => this.sendNotification(taskId), timeUntilDeadline);
+    }
+  }
+
+  sendNotification(taskId) {
+    const task = model.list.find((t) => t.id === taskId);
+    if (!task) return;
+
+    if (!this.notificationSupported) {
+      this.firePopup(`Deadline is now for ${task.text}`, 6000);
+    } else {
+      console.log("Notifications support: ", this.notificationSupported);
+      new Notification("Task Reminder", {
+        body: `Deadline is now for: ${task.text}`,
+      });
     }
   }
 
@@ -105,7 +192,7 @@ class Controller {
     if (!inputValue) return;
     //prettier-ignore
     if (model.list.some((i) => i.text.toLowerCase() === inputValue.toLowerCase())) {
-      this.firePopup("Task already exists");
+      this.firePopup("Task already exists", 2000);
       return;
     }
 
@@ -207,13 +294,13 @@ class Controller {
     this.save();
   }
 
-  firePopup(text) {
+  firePopup(text, timeout) {
     const popup = document.getElementById("popup");
     popup.textContent = text;
     popup.classList.add("active");
     setTimeout(() => {
       document.getElementById("popup").classList.remove("active");
-    }, 2000);
+    }, timeout);
   }
 
   performNavigation() {
